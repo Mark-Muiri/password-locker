@@ -1,122 +1,27 @@
-import unittest
-from user_credentials import User, Credential
+class User:
+	"""
+	Classthat generates new instances of users
+	"""
 
-class TestUser(unittest.TestCase):
-	'''
-	Test class that defines test cases for the user class behaviours.
+	user_list = []#Empty User list
 
-	Args:
-	    unittest.TestCase: helps in creating test cases
-	'''
-	def setUp(self):
-		'''
-		Creates new acc before each test
-		'''
-		self.new_user = User('Mark','Muiri','example')
+	def __init__(self,first_name,last_name,password):
 
-	def test__init__(self):
-		'''
-		Checking initialization of instances "using the variables"
-		'''
-		self.assertEqual(self.new_user.fname,'Mark')
-		self.assertEqual(self.new_user.lname,'Muiri')
-		self.assertEqual(self.new_user.pwd,'example')
+		self.first_name = first_name
+		self.last_name = last_name
+		self.password = password
 
-	def test_save_user(self):
-		'''
-		Test to check if the new users info is saved into the users list
-		'''
-		self.new_user.save_user()
-		self.assertEqual(len(User.users_list),1)
 
-class TestCredentials(unittest.TestCase):
-	'''
-	Test class that defines test cases for the credentials class behaviours.
+class credentials:
+	"""
+	Class generates new instances of credentials
+	"""
 
-	Args:
-	    unittest.TestCase: helps in creating test cases
-	'''
-	def test_check_user(self):
-		'''
-		Function to test whether the login in function check_user works as expected
-		'''
-		self.new_user = User('Mark','Muiri','example')
-		self.new_user.save_user()
-		user2 = User('Mk','Mr','exampl')
-		user2.save_user()
+	credential_list = [] #Empty Credential list
 
-		for user in User.users_list:
-			if user.fname == user2.fname and user.pwd == user2.pwd:
-				current_user = user.fname
-		return current_user
+	def __init__(self,u_name,s_name,acc_name,pwd):
 
-		self.assertEqual(current_user,Credential.check_user(user2.pwd,user2.f_name))
-
-	def setUp(self):
-		'''
-		Creates user credentials
-		'''
-		self.new_credential = Credential('Mark','Facebook','Mackingtosh','example1')
-
-	def test__init__(self):
-		'''
-		Initialization of credential instances "using credential instances"
-		'''
-		self.assertEqual(self.new_credential.u_name,'Mark')
-		self.assertEqual(self.new_credential.s_name,'Facebook')
-		self.assertEqual(self.new_credential.acc_name,'Markingtosh')
-		self.assertEqual(self.new_credential.pwd,'example1')
-
-	def test_save_credentials(self):
-		'''
-		Checking if credentials are saved
-		'''
-		self.new_credential.save_credentials()
-		twitter = Credential('Mark','Twitter','Muiri','example1')
-		twitter.save_credentials()
-		self.assertEqual(len(Credential.credentials_list),2)
-
-	def tearDown(self):
-		'''
-		Checking if credentials are cleared 
-		'''
-		Credential.credentials_list = []
-		User.users_list = []
-
-	def test_display_credentials(self):
-		'''
-		Test to check if the display_credentials method, displays the correct credentials.
-		'''
-		self.new_credential.save_credentials()
-		twitter = Credential('Mark','Twitter','Mackingtosh','example2')
-		twitter.save_credentials()
-		gmail = Credential('Mark','Gmail','Mackingtosh','example2')
-		gmail.save_credentials()
-
-		def test_find_by_site_name(self):
-			'''
-			Test to check if the find_by_site_name method returns the correct credential
-			'''
-			self.new_credential.save_credentials()
-			twitter = Credential('Mark','Twitter','Mackingtosh','example2')
-			twitter.save_credentials()
-			credential_exists = Credential.find_by_site_name('Twitter')
-			self.assertEqual(credential_exists,twitter)
-
-		def test_copy_credential(self):
-			'''
-			Test to check if the copy a credential method copies the correct credential
-			'''
-			self.new_credential.save_credentials()
-			twitter = Credential('Mark','Twitter','Mackingtosh','example20')
-			twitter.save_credentials()
-			find_credential = None
-			for credential in Credential.user_credentials_list:
-					find_credential =Credential.find_by_site_name(credential.site_name)
-					return pyperclip.copy(find_credential.password)
-			Credential.copy_credential(self.new_credential.site_name)
-			self.assertEqual('example20',pyperclip.paste())
-			print(pyperclip.paste())
-
-if __name__ == '__main__':
-	unittest.main(verbosity=2)
+		self.u_name = u_name
+		self.s_name = s_name
+		self.acc_name = acc_name
+		self.pwd = pwd
