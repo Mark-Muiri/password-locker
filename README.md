@@ -91,7 +91,7 @@ Does not make use of a GUI
 
 ## Contact-information
 
-> Ask for collaboration or correction: reach out to *mathenge089@gmail.com*
+> Ask for collaboration or correction: reach out to *markwaichinga@gmail.com*
 
 ## License
 
